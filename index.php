@@ -13,9 +13,9 @@ if (isset($_GET['apartat'])) {
 </head>
 <body>
 
-    <?php include("include/partials/cap.partial.php"); ?>    
-    <?php include "./include/partials/data.partial.php";?>
-    <?php include("include/partials/menu.partial.php"); ?>
+    <?php include("./include/partials/cap.partial.php"); ?>    
+    <?php include("./include/partials/data.partial.php"); ?>
+    <?php include("./include/partials/menu.partial.php"); ?>
 
     <main>
         <?php
@@ -28,6 +28,9 @@ if (isset($_GET['apartat'])) {
                 break;
             case "apadrina":
                 include("include/partials/apadrina.partial.php");
+                break;
+            case "inici": // ✅ añadido para que funcione el botón Inicio
+                include("include/partials/principal.partial.php");
                 break;
             default:
                 include("include/partials/principal.partial.php");

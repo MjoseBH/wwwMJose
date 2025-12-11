@@ -29,7 +29,7 @@ $continente  = obtenerValor("Continente");
 $imagenDefecto = "../imatges/interrogacion.jpg";
 
 // Incluimos el array asociativo con información de los animales
-include("dadesAnimals.php");
+include("./dadesAnimals.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -48,9 +48,9 @@ include("dadesAnimals.php");
     ?>
 </head>
 <body>
-    <?php include("partials/cap.partial.php"); ?>
-    <?php include "./partials/data.partial.php";?>
-    <?php include("partials/menu.partial.php"); ?>
+    <?php include("./partials/cap.partial.php"); ?>
+    <?php include("./partials/data.partial.php"); ?>
+    <?php include("./partials/menu.partial.php"); ?>
 
     <main>
         <h2>Datos recibidos del formulario de registro</h2>
@@ -134,6 +134,6 @@ include("dadesAnimals.php");
         ?>
     </main>
 
-    <?php include("partials/peu.partial.php"); ?>
+    <?php include("./partials/peu.partial.php"); ?>
 </body>
 </html>
