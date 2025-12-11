@@ -1,0 +1,20 @@
+body {
+    background-color: red; /* fondo rojo claro */
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+h2 {
+    color: red;
+    text-transform: uppercase;
+    border-bottom: 3px solid red;
+}
+
+p {
+    font-size: 20px;
+    color: darkred;
+}
+
+.animal-img {
+    border: 5px dashed red;
+    transform: rotate(-3deg);
+}

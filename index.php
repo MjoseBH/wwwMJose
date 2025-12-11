@@ -1,12 +1,11 @@
 <?php
-// Obtenim l'apartat seleccionat per GET
 $apartat = "";
 if (isset($_GET['apartat'])) {
     $apartat = $_GET['apartat'];
 }
 ?>
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Apadrina un animal</title>
@@ -29,7 +28,7 @@ if (isset($_GET['apartat'])) {
                 include("include/partials/apadrina.partial.php");
                 break;
             default:
-                include("include/partials/inici.partial.php");
+                include("include/partials/principal.partial.php");
                 break;
         }
         ?>

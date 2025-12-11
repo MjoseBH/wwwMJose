@@ -1,31 +1,17 @@
 <?php
-// Inicialitzem variables
+// Inicializamos la variable
 $nom = "";
-$email = "";
 
-// Comprovem si els camps existeixen i tenen valor
+// Comprobamos si el campo existe en la petición
 if (isset($_POST['nom'])) {
+    // Limpiamos el valor para evitar inyecciones
     $nom = trim(htmlspecialchars($_POST['nom']));
-} else {
-    $nom = "Valor Buit";
 }
 
-if (isset($_POST['email'])) {
-    $email = trim(htmlspecialchars($_POST['email']));
+// Mostramos el resultado
+if ($nom === "") {
+    echo "El campo está vacío";
 } else {
-    $email = "Valor Buit";
+    echo "Tu nombre es: " . $nom;
 }
 ?>
-<!DOCTYPE html>
-<html lang="ca">
-<head>
-    <meta charset="UTF-8">
-    <title>Resultat del formulari</title>
-    <link rel="stylesheet" href="../css/estils.css">
-</head>
-<body>
-    <h2>Dades rebudes</h2>
-    <p><strong>Nom:</strong> <?= $nom ?></p>
-    <p><strong>Email:</strong> <?= $email ?></p>
-</body>
-</html>

@@ -9,5 +9,5 @@
         Con este proyecto queremos concienciar a la sociedad y ofrecerte la oportunidad 
         de apadrinar un animal, contribuyendo directamente a su protección y conservación.
     </p>
-    <img src="imatges/tigre.jpg" alt="Tigre en peligro de extinción" style="max-width:600px; display:block; margin:auto;">
+    <img src="imatges/tigre.jpg" alt="Tigre en peligro de extinción">
 </main>

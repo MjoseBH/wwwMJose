@@ -1,0 +1,20 @@
+body {
+    background-color: green; /* fondo verde claro */
+    font-family: "Courier New", monospace;
+}
+
+h2 {
+    color: green;
+    font-style: italic;
+    border-bottom: 3px dotted green;
+}
+
+p {
+    font-size: 18px;
+    color: rgb(90, 180, 90);
+}
+
+.animal-img {
+    border: 8px double green;
+    filter: grayscale(50%);
+}

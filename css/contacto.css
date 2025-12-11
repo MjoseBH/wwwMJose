@@ -1,0 +1,43 @@
+.patitas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.patita {
+    width: 50px;
+    height: auto;
+    margin: auto;
+}
+
+
+.mensaje-procesado {
+    list-style-type: none;
+    padding: 0;
+}
+
+.mensaje-procesado li {
+    display: inline-block;
+    margin: 5px;
+}
+
+.mensaje-procesado span {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+/* Estilos diferentes para cada palabra */
+.estilo1 { background-color: #ffdddd; color: red; }
+.estilo2 { background-color: #ddffdd; color: green; }
+.estilo3 { background-color: #ddddff; color: blue; }
+.estilo4 { background-color: #fff0b3; color: orange; }
+.estilo5 { background-color: #e0ccff; color: purple; }
+.estilo6 { background-color: #ccffff; color: teal; }
+.estilo7 { background-color: #f5f5f5; color: black; font-style: italic; }
+.estilo8 { background-color: #000; color: #fff; font-weight: bold; }
+
+/* Si hay más palabras, se pueden repetir los estilos en bucle */
+

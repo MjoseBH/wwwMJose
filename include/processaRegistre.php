@@ -1,54 +1,67 @@
 <?php
-// Funció per validar i netejar els camps
-function obtenirValor($nomCamp, $tipus="text") {
-    if (!isset($_POST[$nomCamp]) || trim($_POST[$nomCamp]) === "") {
-        return "Valor Buit";
+// Recogemos el estilo elegido
+$cssExtra = ""; // por defecto
+if (isset($_POST['estilo'])) {
+    if ($_POST['estilo'] == "1") {
+        $cssExtra = "../css/estilsregistre1.css";
+    } elseif ($_POST['estilo'] == "2") {
+        $cssExtra = "../css/estilsregistre2.css";
     }
-    $valor = trim($_POST[$nomCamp]);
-    $valor = htmlspecialchars($valor);
-
-    // Validacions específiques
-    if ($tipus === "email" && !filter_var($valor, FILTER_VALIDATE_EMAIL)) {
-        return "Email invàlid";
-    }
-    if ($tipus === "telefon" && !preg_match("/^[0-9]{9}$/", $valor)) {
-        return "Telèfon invàlid";
-    }
-    return $valor;
 }
 
-// Rebem les dades del formulari
-$nom        = obtenirValor("nom");
-$contrasenya= obtenirValor("contrasenya");
-$email      = obtenirValor("email", "email");
-$telefon    = obtenirValor("telefon", "telefon");
-$naixement  = obtenirValor("naixement");
-$pais       = obtenirValor("pais");
-$genere     = obtenirValor("genere");
+// Comprobamos el campo select "animal"
+if (isset($_POST['animal']) && $_POST['animal'] !== "") {
+    $animal = htmlspecialchars($_POST['animal']);
+    switch ($animal) {
+        case "gorila":
+            $imagen = "../imatges/gorila.jpg";
+            $nombreAnimal = "Gorila";
+            break;
+        case "tortuga":
+            $imagen = "../imatges/tortuga.jpg";
+            $nombreAnimal = "Tortuga";
+            break;
+        case "tigre":
+            $imagen = "../imatges/tigre.jpg";
+            $nombreAnimal = "Tigre";
+            break;
+        default:
+            $imagen = "../imatges/interrogacion.jpg";
+            $nombreAnimal = "Sin valor";
+            break;
+    }
+} else {
+    // Si no hay valor seleccionado → imagen por defecto
+    $imagen = "../imatges/interrogacion.jpg";
+    $nombreAnimal = "Sin valor";
+}
 ?>
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Resultat del registre</title>
-    <!-- Estils generals -->
+    <title>Resultado del registro</title>
+    <!-- Estilo principal -->
     <link rel="stylesheet" href="../css/estils.css">
-    <!-- Estils específics per al registre -->
-    <link rel="stylesheet" href="../css/registre.css">
+    <!-- Estilo específico de registro -->
+    <link rel="stylesheet" href="../css/registro.css">
+    <!-- Estilo extra si se eligió -->
+    <?php if ($cssExtra !== ""): ?>
+        <link rel="stylesheet" href="<?= $cssExtra ?>">
+    <?php endif; ?>
 </head>
 <body>
-    <!-- ⚠️ Atenció: la ruta dels partials canvia perquè estem dins de include/ -->
     <?php include("partials/cap.partial.php"); ?>
     <?php include("partials/menu.partial.php"); ?>
 
     <main>
-        <h2>Dades rebudes del formulari de registre</h2>
-        <ul>
-            <li><strong>Nom:</strong> <?= $nom ?></li>
-            <li><strong>Contrasenya:</strong> <?= $contrasenya ?></li>
-            <li><strong>Email:</strong> <?= $email ?></li>
-            <li><strong>Telèfon:</strong> <?= $telefon ?></li>
-            <li><strong>Data de naixement:</strong> <?= $naixement ?></li>
-            <li><strong>País:</strong> <?= $pais ?></li>
-            <li><strong>Gènere:</strong> <?= $genere ?></li>
-        </ul>
+        <h2>Animal elegido</h2>
+        <p>Has elegido: <strong><?= $nombreAnimal ?></strong></p>
+        <img src="<?= $imagen ?>" alt="Animal apadrinado" class="animal-img">
+
+        <h3>Estilo aplicado</h3>
+    </main>
+
+    <?php include("partials/peu.partial.php"); ?>
+</body>
+</html>
