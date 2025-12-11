@@ -12,7 +12,9 @@ if (isset($_GET['apartat'])) {
     <link rel="stylesheet" href="css/estils.css">
 </head>
 <body>
-    <?php include("include/partials/cap.partial.php"); ?>
+
+    <?php include("include/partials/cap.partial.php"); ?>    
+    <?php include "./include/partials/data.partial.php";?>
     <?php include("include/partials/menu.partial.php"); ?>
 
     <main>

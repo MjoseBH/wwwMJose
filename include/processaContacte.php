@@ -36,6 +36,7 @@ $imagenDefecto  = "../imatges/interrogacion.jpg"; // imagen por defecto
 </head>
 <body>
     <?php include("partials/cap.partial.php"); ?>
+    <?php include "./partials/data.partial.php";?>
     <?php include("partials/menu.partial.php"); ?>
 
     <main>
@@ -88,6 +89,40 @@ $imagenDefecto  = "../imatges/interrogacion.jpg"; // imagen por defecto
             }
             ?>
         </ul>
+
+        <h3>Mensaje en tabla</h3>
+        <?php
+        $numPalabras = count($palabras);
+
+        if ($numPalabras <= 36) {
+            // Tabla cuadrada
+            $lado = ceil(sqrt($numPalabras));
+            $columnas = $lado;
+            $filas = $lado;
+        } else {
+            // Tabla de 6 columnas
+            $columnas = 6;
+            $filas = ceil($numPalabras / 6);
+        }
+
+        echo "<table border='1' cellspacing='0' cellpadding='5'>";
+        $indice = 0;
+        for ($i = 0; $i < $filas; $i++) {
+            echo "<tr>";
+            for ($j = 0; $j < $columnas; $j++) {
+                if ($indice < $numPalabras) {
+                    // Clase aleatoria entre fons01 y fons05
+                    $claseFondo = "fons0" . random_int(1, 5);
+                    echo "<td class='$claseFondo'>" . htmlspecialchars($palabras[$indice]) . "</td>";
+                    $indice++;
+                } else {
+                    echo "<td></td>";
+                }
+            }
+            echo "</tr>";
+        }
+        echo "</table>";
+        ?>
     </main>
 
     <?php include("partials/peu.partial.php"); ?>

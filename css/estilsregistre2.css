@@ -18,3 +18,35 @@ p {
     border: 8px double green;
     filter: grayscale(50%);
 }
+.tabla-animal {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.tabla-animal th, 
+.tabla-animal td {
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    text-align: left;
+}
+
+.tabla-animal th {
+    background-color: #4CAF50;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tabla-animal tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.tabla-animal tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.3s ease;
+}
+
